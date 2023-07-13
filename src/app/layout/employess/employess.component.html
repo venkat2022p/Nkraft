@@ -1,0 +1,146 @@
+<div class="">
+    <div class="addButton">
+        <button class="btn btn-primary" (click)="showForm()"><i class="bi bi-plus-circle-fill"></i> Add Employee</button>
+        <input type="Search" value="Search" class="float-end mr-5" placeholder="Search">
+    </div>
+<div *ngIf="isShow" class="empForm bg-white p-5 mt-5 rounded">
+    <form
+    #userForm="ngForm"
+    (ngSubmit)="userForm.form.valid && onSubmit(userForm)"
+  >
+  <div class="row">
+    <div class="col">
+        <div class="form-group mb-3">
+            <label>Emp Name</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              [(ngModel)]="model.name"
+              #name="ngModel"
+              [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }"
+              required
+            />
+            <div class="invalid-feedback" *ngIf="userForm.submitted && name.invalid">
+              <p *ngIf="name.invalid">Name is required</p>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }"
+              email
+              required
+            />
+            <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.invalid">Email is required</div>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label>Emp Deapartment</label>
+            <select class="form-control" name="empDeprt" [(ngModel)]="model.empDeprt">
+              <option value="">Select an option</option>
+              <option *ngFor="let hoby of empDeprt" [value]="hoby">
+                {{ hoby }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label>Emp Designation</label>
+            <select class="form-control" name="EmpDesgntn" [(ngModel)]="model.EmpDesgntn">
+              <option value="">Select an option</option>
+              <option *ngFor="let hoby of EmpDesgntn" [value]="hoby">
+                {{ hoby }}
+              </option>
+            </select>
+          </div>
+    </div>
+    <div class="col">
+        <div class="form-group mb-3">
+            <label>Salary</label>
+            <input
+              type="text"
+              name="salary"
+              class="form-control"
+              [(ngModel)]="model.salary"
+              #name="ngModel"
+              [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }"
+              required
+            />
+            <div class="invalid-feedback" *ngIf="userForm.submitted && name.invalid">
+              <p *ngIf="name.invalid">salary is required</p>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label>Emp Task</label>
+            <select class="form-control" name="empTask" [(ngModel)]="model.empTask">
+              <option value="">Select an option</option>
+              <option *ngFor="let hoby of empTask" [value]="hoby">
+                {{ hoby }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label>Emp Status</label>
+            <select class="form-control" name="empStatus" [(ngModel)]="model.empStatus">
+              <option value="">Select an option</option>
+              <option *ngFor="let hoby of empStatus" [value]="hoby">
+                {{ hoby }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label>Emp Reporting</label>
+            <select class="form-control" name="empReport" [(ngModel)]="model.empReport">
+              <option value="">Select an option</option>
+              <option *ngFor="let hoby of empReport" [value]="hoby">
+                {{ hoby }}
+              </option>
+            </select>
+          </div>
+    </div>
+  </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="isTable" class="emplTable bg-white p-5 mt-5 rounded">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th>Task</th>
+            <th>Reporting</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <th>{{emp.id}}</th>
+            <td>{{emp.name}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.empDeprt}}</td>
+            <td>{{emp.EmpDesgntn}}</td>
+            <td>{{emp.salary | currency:'INR'}}</td>
+            <td>{{emp.empTask}}</td>
+            <td>{{emp.empReport}}</td>
+            <td>{{emp.empStatus}}</td>
+           </tr>
+        </tbody>
+      </table>
+</div>
+<div>  
+</div>
+</div>
