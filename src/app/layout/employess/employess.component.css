@@ -10,3 +10,7 @@ table{
     font-size: 16px;
     font-weight: 600;
 }
+.search-box{
+    margin: 0px 35px 0px 0px;
+   padding: 6px;
+}

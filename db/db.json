@@ -1,0 +1,37 @@
+{
+  "emp": [
+    {
+      "name": "Venkatramana Poojari",
+      "email": "v97038@gmail.com",
+      "empDeprt": "IT",
+      "EmpDesgntn": "Backend Developer",
+      "salary": "300000",
+      "empTask": "Not Working",
+      "empStatus": "In-active",
+      "empReport": "CTO",
+      "id": 1
+    },
+    {
+      "name": "venkat",
+      "email": "V97038@GMAIL.COM",
+      "empDeprt": "ADMIN",
+      "EmpDesgntn": "Devops Developer",
+      "salary": "500000",
+      "empTask": "Working in Progress",
+      "empStatus": "Active",
+      "empReport": "Manager",
+      "id": 2
+    },
+    {
+      "name": "ramu",
+      "email": "venkatangular94@gmail.com",
+      "empDeprt": "ADMIN",
+      "EmpDesgntn": "Backend Developer",
+      "salary": "500000",
+      "empTask": "Not Working",
+      "empStatus": "In-active",
+      "empReport": "Manager",
+      "id": 3
+    }
+  ]
+}

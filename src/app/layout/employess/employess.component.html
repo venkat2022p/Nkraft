@@ -1,7 +1,10 @@
 <div class="">
     <div class="addButton">
         <button class="btn btn-primary" (click)="showForm()"><i class="bi bi-plus-circle-fill"></i> Add Employee</button>
-        <input type="Search" value="Search" class="float-end mr-5" placeholder="Search">
+        <input type="Search" [(ngModel)]="filterText" class="search-box float-end border-primary mr-5 rounded" placeholder="Search">
+    </div><br>
+    <div class="pae-title">
+      <h6>Employee List</h6>
     </div>
 <div *ngIf="isShow" class="empForm bg-white p-5 mt-5 rounded">
     <form
@@ -106,7 +109,8 @@
     </div>
   </div>
     <div class="form-group">
-      <button class="btn btn-primary btn-block">Submit</button>
+      <button class="btn btn-primary btn-block">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-danger btn-block " (click)="close(userForm)">CLose</button>
     </div>
   </form>
 </div>
@@ -127,7 +131,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let emp of employees">
+          <tr *ngFor="let emp of employees |  filter: filterText">
             <th>{{emp.id}}</th>
             <td>{{emp.name}}</td>
             <td>{{emp.email}}</td>

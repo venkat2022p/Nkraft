@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { EmpService } from 'src/app/emp.service';
 export class User {
   public name!: string;
   public email!: string;
@@ -15,10 +17,12 @@ export class User {
   styleUrls: ['./employess.component.css']
 })
 export class EmployessComponent {
+  private url = "http://localhost:3000/emp"
   employees : any[]= []
   model = new User();
   isShow : boolean = false;
   isTable : boolean = true
+  filterText:string = '';
   empReport: string [] = [
     'CTO',
     'Manager',
@@ -44,27 +48,31 @@ export class EmployessComponent {
     'Devops Developer',
     'PowerBi Developer',
   ];
-  constructor() {}
-  ngOninit(){
+  constructor( private emp : EmpService, private http : HttpClient) {}
+  ngOnInit(){
+    this.tableData()
+  }
+  tableData(){
+    this.emp.getTableData().subscribe((res: any) =>{
+      this.employees = res;
+      console.log(res ,"res");
+    })
   }
   onSubmit(form: any) {
     console.log(form.value);
-    localStorage.setItem("UserData",JSON.stringify(form.value));
-    this.employees.push(form.value)
-    var  employees = JSON.stringify(localStorage.getItem('UserData'))
-    console.log(employees);
-    
-    // return this.employees = this.employees
-    //  this.employees = new User(Data)
-    this.employees
+    this.emp.pushTableData(this.model).subscribe((res: any) =>{
+  
+      console.log(res ,"res");
+    })
     form.reset();
     this.isShow = false
     this.isTable = true
-// return this.employees = JSON.stringify(localStorage.getItem('UserData'))
-
   }
   showForm(){
     this.isShow = true
     this.isTable = false    
+  }
+  close(form : any){
+
   }
 }

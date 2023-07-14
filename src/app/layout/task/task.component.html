@@ -1,1 +1,33 @@
-<p>task works!</p>
+<div class="page-title">
+    <h6>Employee Task List</h6>
+</div>
+<div class="emplTable bg-white p-5 mt-5 rounded">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <!-- <th>Department</th> -->
+            <!-- <th>Designation</th>  -->
+            <!-- <th>Salary</th> -->
+            <th>Task</th>
+            <!-- <th>Reporting</th> -->
+            <!-- <th>Status</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <th>{{emp.id}}</th>
+            <td>{{emp.name}}</td>
+            <td>{{emp.email}}</td>
+            <!-- <td>{{emp.empDeprt}}</td> -->
+            <!-- <td>{{emp.EmpDesgntn}}</td> -->
+            <!-- <td>{{emp.salary | currency:'INR'}}</td> -->
+            <td>{{emp.empTask}}</td>
+            <!-- <td>{{emp.empReport}}</td> -->
+            <!-- <td>{{emp.empStatus}}</td> -->
+           </tr>
+        </tbody>
+      </table>
+</div>

@@ -12,6 +12,7 @@ import { ManagersComponent } from './managers/managers.component';
 import { SalariesComponent } from './salaries/salaries.component';
 import { StatusComponent } from './status/status.component';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule,
   ]
 })
 export class LayoutModule { }
